@@ -19,6 +19,21 @@ const body = document.querySelector('body').style,
     att_que = document.querySelector('.att_que'),
     status = document.querySelector('.status');
 
+    $(function() { 
+        $("#btnSave").click(function() { 
+            html2canvas($("#widget"), {
+                onrendered: function(canvas) {
+                    theCanvas = canvas;
+    
+    
+                    canvas.toBlob(function(blob) {
+                        saveAs(blob, "Dashboard.png"); 
+                    });
+                }
+            });
+        });
+    });
+
 sign_in_btn.onclick = () => {
     section.height = "200vh";
     section.overflow = "hidden";
@@ -120,3 +135,18 @@ function right_selection(value) {
         }
     }
 }
+
+$(function() { 
+    $("#btnSave").click(function() { 
+        html2canvas($("#widget"), {
+            onrendered: function(canvas) {
+                theCanvas = canvas;
+
+
+                canvas.toBlob(function(blob) {
+                    saveAs(blob, "Dashboard.png"); 
+                });
+            }
+        });
+    });
+});
